@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIXORA AI - Image Generator</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#090b16;color:white;
+  min-height:100vh;padding:20px;
+}
+header{
+  display:flex;justify-content:space-between;
+  align-items:center;padding:15px 0;
+  border-bottom:1px solid #25283b;
+}
+.logo{font-size:27px;font-weight:900;color:#a78bfa}
+.logo span{color:white}
+.badge{background:#20203b;padding:8px 12px;
+border-radius:20px;color:#c4b5fd;font-size:12px}
+main{max-width:700px;margin:55px auto}
+h1{text-align:center;font-size:38px;margin-bottom:12px}
+h1 span{color:#a78bfa}
+.sub{text-align:center;color:#999eb5;margin-bottom:35px}
+.panel{
+ background:#141729;border:1px solid #292d45;
+ padding:22px;border-radius:20px;
+}
+label{display:block;margin:18px 0 9px;font-weight:bold}
+textarea,select{
+ width:100%;background:#0c1020;color:white;
+ border:1px solid #343952;border-radius:12px;
+ padding:14px;font-size:15px;outline:none;
+}
+textarea{height:125px;resize:vertical}
+select{margin-bottom:5px}
+button{
+ border:0;border-radius:12px;padding:15px;
+ font-size:16px;font-weight:bold;cursor:pointer;
+}
+.generate{
+ width:100%;margin-top:24px;
+ color:white;background:linear-gradient(100deg,#7655ed,#b14be7);
+}
+.preview{
+ margin-top:25px;min-height:220px;
+ border:1px dashed #454967;border-radius:16px;
+ display:flex;align-items:center;justify-content:center;
+ text-align:center;color:#969bb2;padding:15px;
+}
+.preview img{max-width:100%;border-radius:12px}
+#status{text-align:center;color:#c4b5fd;margin-top:15px}
+footer{text-align:center;color:#777d95;
+font-size:12px;margin:35px 0}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">✦ PIXORA<span> AI</span></div>
+ <div class="badge">FREE AI STUDIO</div>
+</header>
+
+<main>
+ <h1>Create <span>Anything.</span></h1>
+ <p class="sub">Turn your imagination into amazing artwork.</p>
+
+ <section class="panel">
+  <label>Describe your image</label>
+  <textarea id="prompt" placeholder="A beautiful futuristic city at sunset, cinematic lighting..."></textarea>
+
+  <label>Image Ratio</label>
+  <select id="ratio">
+   <option value="1:1">Square (1:1)</option>
+   <option value="9:16">Portrait (9:16)</option>
+   <option value="16:9">Landscape (16:9)</option>
+   <option value="3:4">Portrait (3:4)</option>
+  </select>
+
+  <label>Art Style</label>
+  <select id="style">
+   <option>Realistic</option>
+   <option>3D Render</option>
+   <option>Anime</option>
+   <option>Cinematic</option>
+   <option>Digital Art</option>
+   <option>Fantasy</option>
+  </select>
+
+  <button class="generate" onclick="generate()">
+   ✨ Generate Image
+  </button>
+
+  <div class="preview" id="preview">
+   Your generated image will appear here.
+  </div>
+  <p id="status">Your creative studio is ready!</p>
+ </section>
+</main>
+
+<footer>PIXORA AI © 2026 · Imagine It. Generate It.</footer>
+
+<script>
+function generate(){
+ const prompt=document.getElementById("prompt").value.trim();
+ const status=document.getElementById("status");
+
+ if(!prompt){
+  status.textContent="Please enter an image prompt.";
+  return;
+ }
+
+ status.textContent="AI connection will be added in the next step.";
+}
+</script>
+</body>
+</html>
